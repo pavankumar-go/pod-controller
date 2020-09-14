@@ -1,4 +1,4 @@
-module github.com/configmap
+module github.com/pod-controller
 
 go 1.13
 

@@ -95,5 +95,4 @@ func main() {
 	sigCh := make(chan os.Signal, 0)
 	signal.Notify(sigCh, os.Kill, os.Interrupt)
 	<-sigCh
-	<-stopCh
 }
