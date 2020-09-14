@@ -73,6 +73,7 @@ func main() {
 				log.Println("not updated")
 			}
 		},
+
 		DeleteFunc: func(obj interface{}) {
 			u := obj.(*unstructured.Unstructured)
 
