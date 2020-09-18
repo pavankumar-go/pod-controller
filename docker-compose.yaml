@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+  informer:
+
+services:
+  loki:
+    image: grafana/loki:1.6.0
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - informer
+      
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - informer
+
+  informer:
+    build: .
+    environment:
+      - KUBECONFIG=$HOME/.kube/config
+      - SOURCE_NAME=k8s
+      - JOB_NAME=events
+    networks:
+      - informer
