@@ -1,5 +1,8 @@
 # cloud.google.com/go v0.65.0
 cloud.google.com/go/compute/metadata
+# github.com/afiskon/promtail-client v0.0.0-20190305142237-506f3f921e9c
+github.com/afiskon/promtail-client/logproto
+github.com/afiskon/promtail-client/promtail
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
 # github.com/go-logr/logr v0.1.0
@@ -13,15 +16,16 @@ github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
-# github.com/google/gofuzz v1.2.0
+# github.com/golang/snappy v0.0.1
+github.com/golang/snappy
+# github.com/google/gofuzz v1.0.0
 github.com/google/gofuzz
-github.com/google/gofuzz/bytesource
 # github.com/googleapis/gnostic v0.5.1
 github.com/googleapis/gnostic/OpenAPIv2
 github.com/googleapis/gnostic/compiler
 github.com/googleapis/gnostic/extensions
 github.com/googleapis/gnostic/jsonschema
-# github.com/hashicorp/golang-lru v0.5.1
+# github.com/hashicorp/golang-lru v0.5.4
 github.com/hashicorp/golang-lru
 github.com/hashicorp/golang-lru/simplelru
 # github.com/imdario/mergo v0.3.11
@@ -38,9 +42,9 @@ github.com/modern-go/reflect2
 github.com/sirupsen/logrus
 # github.com/spf13/pflag v1.0.5
 github.com/spf13/pflag
-# golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
+# golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/net v0.0.0-20200904194848-62affa334b73
+# golang.org/x/net v0.0.0-20200822124328-c89045814202
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
 golang.org/x/net/http/httpguts
@@ -188,7 +192,7 @@ k8s.io/apimachinery/pkg/util/yaml
 k8s.io/apimachinery/pkg/version
 k8s.io/apimachinery/pkg/watch
 k8s.io/apimachinery/third_party/forked/golang/reflect
-# k8s.io/client-go v11.0.1-0.20190409021438-1a26190bd76a+incompatible => k8s.io/client-go v11.0.1-0.20190409021438-1a26190bd76a+incompatible
+# k8s.io/client-go v11.0.0+incompatible => k8s.io/client-go v11.0.1-0.20190409021438-1a26190bd76a+incompatible
 k8s.io/client-go/discovery
 k8s.io/client-go/dynamic
 k8s.io/client-go/dynamic/dynamicinformer
@@ -344,7 +348,7 @@ k8s.io/client-go/util/retry
 k8s.io/klog
 # k8s.io/klog/v2 v2.0.0
 k8s.io/klog/v2
-# k8s.io/utils v0.0.0-20200821003339-5e75c0163111
+# k8s.io/utils v0.0.0-20200912215256-4140de9c8800
 k8s.io/utils/buffer
 k8s.io/utils/integer
 k8s.io/utils/trace
