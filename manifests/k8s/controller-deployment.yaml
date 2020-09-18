@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: controller
+  name: trefon
+<<<<<<< HEAD
+  namespace: monitoring
+spec:
+=======
+  namespace: test
+spec:
+  replicas: 1
+>>>>>>> WIP
+  selector:
+    matchLabels:
+      app: controller
+  template:
+    metadata:
+      labels:
+        app: controller
+<<<<<<< HEAD
+  replicas: 1
+  containers:
+  - image: pavankumar06/trefon:v1.0.0
+    name: trefon
+    env:
+    - name: SOURCE_NAME
+      value: nonprod
+    - name: JOB_NAME
+      value: events
+    securityContext:
+      runAsUser: 65534
+      runAsGroup: 65534
+    resources:
+      limits:
+        cpu: 1
+        memory: 1.5Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+=======
+    spec:
+      containers:
+      - image: pavankumar6/trefon:v1.0.0
+        name: trefon
+        env:
+        - name: KUBECONFIG
+          value: ""
+        - name: SOURCE_NAME
+          value: nonprod
+        - name: JOB_NAME
+          value: events
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1.5Gi
+          requests:
+            cpu: 200m
+            memory: 1Gi
+      serviceAccountName: admin
+>>>>>>> WIP

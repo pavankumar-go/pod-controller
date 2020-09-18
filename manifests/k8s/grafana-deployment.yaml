@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    log: loki
+    monitor: grafana
+  name: grafana
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      log: loki
+      monitor: grafana
+  template:
+    metadata:
+      labels:
+        log: loki
+        monitor: grafana
+    spec:
+      containers:
+      - image: grafana/loki:1.6.0
+        ports:
+        - containerPort: 3100
+        name: loki
+        args:
+        - -config.file=/etc/loki/local-config.yaml
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1.5Gi
+          requests:
+            cpu: 200m
+            memory: 1Gi
+      - image: grafana/grafana:latest
+        ports:
+        - containerPort: 3000
+        name: grafana
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1.5Gi
+          requests:
+            cpu: 200m
+            memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trefon
+  namespace: test
+spec: 
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 3100
+  selector:
+    log: loki

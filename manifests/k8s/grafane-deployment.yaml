@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    log: loki
+    monitor: grafana
+  name: grafana
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      log: loki
+      monitor: grafana
+  template:
+    metadata:
+      labels:
+        log: loki
+        monitor: grafana
+  replicas: 1
+  containers:
+  - image: grafana/loki:1.6.0
+    ports:
+    - containerPort: 3100
+    name: loki
+    command:
+    - "/bin/bash"
+    - "-c"
+    - "-config.file=/etc/loki/local-config.yaml"
+    securityContext:
+      runAsUser: 65534
+      runAsGroup: 65534
+    resources:
+      limits:
+        cpu: 1
+        memory: 1.5Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+  - image: grafana/grafana:latest
+    ports:
+    - containerPort: 3000
+    name: grafana
+    securityContext:
+      runAsUser: 65534
+      runAsGroup: 65534
+    resources:
+      limits:
+        cpu: 1
+        memory: 1.5Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 3000
+      initialDelaySeconds: 20
+      periodSeconds: 5
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 3000
+      initialDelaySeconds: 20
+      periodSeconds: 5
